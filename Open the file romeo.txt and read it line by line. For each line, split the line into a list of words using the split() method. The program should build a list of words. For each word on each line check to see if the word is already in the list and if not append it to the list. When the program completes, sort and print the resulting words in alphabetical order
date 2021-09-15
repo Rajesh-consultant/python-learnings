@@ -2,14 +2,16 @@
 
 fname = input("Enter file name: ")  ///enter name of the file to read
 fh = open(fname)
+
 lst = list()
-for line in fh:
-    imp= line.rstrip()
-    print(imp)
-    pieces = imp.split()
-    print(pieces)
-if fh  in pieces:
-    continue
-else:    
-    pieces.append(fh)
-    
+
+for line in fh:                     ///read every lement in file(fh)
+    pieces= line.rstrip().split()   ///removing whitespaces and liines(rstip()),after conveting string to list by split()
+    for word in pieces:             /// checking whether every word in file presen or missing
+        if word in lst:
+            continue
+        else:
+            lst.append(word)        ///i misses ill add here
+            
+lst.sort()                          ///sorting in alphabetical order
+print(lst)                          //.print remain list
